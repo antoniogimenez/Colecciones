@@ -18,9 +18,14 @@ public class Ejercicio2 {
         Cubo miCubo = new Cubo(5);
         
         miCubo.pintar();
-        System.out.println("");
         
         miCubo.rellenar(4);
+        miCubo.pintar();
+        
+        miCubo.rellenar(2);
+        miCubo.pintar();
+        
+        miCubo.vaciar();
         miCubo.pintar();
         
        
