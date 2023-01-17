@@ -25,7 +25,12 @@ public class Libro {
         this.autor = autor;
         this.año = año;
         this.titulo = titulo;
-        this.isbn = isbn;
+        if(this.checkISBN(isbn)){
+            isbn = isbn.toUpperCase();
+            this.isbn = isbn;
+        } else{
+            System.out.println("Error: isbn incorrecto");
+        }
     }
 
     public String getIsbn() {
@@ -40,7 +45,13 @@ public class Libro {
     }
 
     public void setIsbn(String isbn) {
-        this.isbn = isbn;
+        isbn = isbn.toUpperCase();
+        
+        if(this.checkISBN(isbn)){
+            this.isbn = isbn;
+        } else{
+            System.out.println("Error: isbn incorrecto");
+        }
     }
 
     public String getAutor() {
@@ -72,5 +83,34 @@ public class Libro {
         
         cita = String.format("%s, (%d), %s",this.autor,this.año,this.titulo);
         return cita;
+    }
+    
+    private boolean checkISBN(String isbn){
+        boolean isbnCorrecto =true;
+        isbn = isbn.toUpperCase();
+        
+        if(isbn.length() != 4){
+            isbnCorrecto = false;
+        }
+        
+        char letra = isbn.charAt(0);
+        if(letra<'A' || letra>'Z'){
+            isbnCorrecto = false;
+        }
+        
+        if(isbn.charAt(1)<'0' || isbn.charAt(1)>'9'){
+            isbnCorrecto = false;
+        }
+        if(isbn.charAt(2)<'0' || isbn.charAt(2)>'9'){
+            isbnCorrecto = false;
+        }
+        if(isbn.charAt(3)<'0' || isbn.charAt(3)>'9'){
+            isbnCorrecto = false;
+        }
+        if(isbnCorrecto==false){
+            return false;
+        } else {
+            return true;
+        }
     }
 }
