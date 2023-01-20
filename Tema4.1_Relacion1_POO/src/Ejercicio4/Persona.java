@@ -11,11 +11,20 @@ package Ejercicio4;
 public class Persona {
     private String nombre;
     private String email;
+    public static int contadorPersonas = 0;
     
     public Persona(String nombre, String email){
         this.email = email;
         this.nombre = nombre;
-        
+        Persona.contadorPersonas++;
+    }
+
+    public static int getContadorPersonas() {
+        return contadorPersonas;
+    }
+
+    public static void setContadorPersonas(int contadorPersonas) {
+        Persona.contadorPersonas = contadorPersonas;
     }
 
     public String getNombre() {
@@ -37,7 +46,7 @@ public class Persona {
     public String mostrar_datos(){
         String dato;
         
-        dato = String.format("%s %s",this.nombre, this.email);
+        dato = String.format("%s - %s",this.nombre, this.email);
         return dato;
     }
 }
