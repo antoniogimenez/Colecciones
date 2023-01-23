@@ -31,15 +31,16 @@ public class Ejercicio5 {
             System.out.println("===========================");
             System.out.println("         MENU CASAS        ");
             System.out.println("===========================");
-            System.out.println("1.Añadir casa");
+            System.out.println("1. Añadir casa");
             System.out.println("2. Listar casas");
             System.out.println("3. Cambiar Propietario");
-            System.out.println("4. Salir");
+            System.out.println("4. Buscador con precio");
+            System.out.println("5. Salir");
 
             do {
                 System.out.println("Elige una opcion: ");
                 opcion = Integer.parseInt(s.nextLine());
-            } while(opcion>4 || opcion<1);
+            } while(opcion>5 || opcion<1);
 
             switch (opcion){
                 case 1: 
@@ -71,12 +72,32 @@ public class Ejercicio5 {
                     System.out.println("Dime el nombre: ");
                     propietario = s.nextLine();
                     listaCasa[posicion-1].setPropietario(propietario);
+                    break;
+                case 4:
+                    //buscarCasas(Casa [] listaCasa, Casa.contadorCasa);
+                    
+                case 5:
+                    System.out.println("Saliendo....");
+                    break;
+                 
             }
         
-        }while (opcion!=4);
-
-
-        
-    }
+        }while (opcion!=5);
     
+    
+    }
+    public static void buscarCasas(Casa [] listaCasa, Casa contadorCasa){
+            Scanner s = new Scanner(System.in);
+            System.out.println("== Buscar casas por precio ==");
+            System.out.println("¿Cual es el precio maximo?");
+            int precioMax = Integer.parseInt(s.nextLine());
+            for (int i = 0; i < Casa.contadorCasa; i++) {
+                if(listaCasa[i].getPrecioVenta()<=precioMax){
+                    System.out.print("CASA "+(i+1)+"-->");
+                    listaCasa[i].imprimirDatos();
+                }
+
+            }
+
+    }
 }

@@ -63,6 +63,6 @@ public class Casa {
     }
     
     public void imprimirDatos(){
-        System.out.println("  "+this.propietario+"  "+superficieTotal()+"  "+precioVenta);
+        System.out.println("  "+this.propietario+"  "+superficiePlanta1+"  "+superficiePlanta2+"  "+precioVenta);
     }
 }
