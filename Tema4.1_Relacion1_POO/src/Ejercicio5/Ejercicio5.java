@@ -74,7 +74,7 @@ public class Ejercicio5 {
                     listaCasa[posicion-1].setPropietario(propietario);
                     break;
                 case 4:
-                    //buscarCasas(Casa [] listaCasa, Casa.contadorCasa);
+                    buscarCasas(listaCasa); //me la he ahorrado la llamada del contador
                     
                 case 5:
                     System.out.println("Saliendo....");
@@ -86,12 +86,12 @@ public class Ejercicio5 {
     
     
     }
-    public static void buscarCasas(Casa [] listaCasa, Casa contadorCasa){
+    private static void buscarCasas(Casa [] listaCasa){ // int contadorCasa
             Scanner s = new Scanner(System.in);
             System.out.println("== Buscar casas por precio ==");
             System.out.println("¿Cual es el precio maximo?");
             int precioMax = Integer.parseInt(s.nextLine());
-            for (int i = 0; i < Casa.contadorCasa; i++) {
+            for (int i = 0; i < Casa.contadorCasa; i++) {   //me ahorro la variable del contador porque la cojo de la clase
                 if(listaCasa[i].getPrecioVenta()<=precioMax){
                     System.out.print("CASA "+(i+1)+"-->");
                     listaCasa[i].imprimirDatos();

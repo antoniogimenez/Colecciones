@@ -57,10 +57,10 @@ public class Ejercicio8 {
                     laEmpresa.addEmpresa(e);
                     break;
                 case 2:
-                    for (Empresa empresa : lista) {
-                        empresa.imprimirEmpresa();
-                    }
-                    break;
+//                    for (Empresa empresa : lista) {
+//                        empresa.imprimirEmpresa();
+//                    }
+//                    break;
                 case 5:
                     System.out.println("Saliendo...");
                     break;
