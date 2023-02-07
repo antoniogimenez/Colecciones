@@ -34,6 +34,10 @@ public class Ejercicio10 {
         cochePorsche.imprimirFicha();
         cochePorsche.recorrer(500);
         cochePorsche.imprimirFicha();
+        
+        //Para destruir un coche
+        cochePorsche = null;
+        
     }
     
 }
