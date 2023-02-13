@@ -19,6 +19,6 @@ public class Libro {
         this.titulo = titulo;
         this.autor = autor;
         this.año = año;
-        this.codigo = generarcodigoLibro();
+        this.codigo = Utilidades.generarCodigoLibro();
     }
 }
