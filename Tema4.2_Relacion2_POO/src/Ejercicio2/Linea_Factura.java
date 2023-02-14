@@ -16,9 +16,36 @@ public class Linea_Factura {
     public Linea_Factura(Producto p, int cantidad){
         this.producto = p;
         this.cantidad = cantidad;
+        this.importeLinea = producto.getPrecioUnitario()*this.cantidad;
     }
     
     public void imprimirLinea(){
-        System.out.println("");
+        System.out.println(producto.getRef()+"   "+producto.getDescripcion()+"   "
+                +cantidad+"   "+producto.getPrecioUnitario()+"   "+importeLinea);
     }
+
+    public Producto getProducto() {
+        return producto;
+    }
+
+    public void setProducto(Producto producto) {
+        this.producto = producto;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public double getImporteLinea() {
+        return importeLinea;
+    }
+
+    public void setImporteLinea(double importeLinea) {
+        this.importeLinea = importeLinea;
+    }
+    
 }
