@@ -38,7 +38,7 @@ public class Factura {
         System.out.println("Fecha: "+fechaFactura.format(dtf));
         System.out.println("Factura Num: "+numero);
         System.out.println("");
-        System.out.println("CANT    DESCRIPCION   PRECIO U    IMPORTE");
+        System.out.println("REF     DESCRIPCION   CANT    PRECIO U    IMPORTE");
         System.out.println("-------------------------------------------------");
         for (Linea_Factura linea : lista) {
             linea.imprimirLinea();

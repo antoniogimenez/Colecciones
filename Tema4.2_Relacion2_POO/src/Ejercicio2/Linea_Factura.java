@@ -20,8 +20,8 @@ public class Linea_Factura {
     }
     
     public void imprimirLinea(){
-        System.out.println(producto.getRef()+"   "+producto.getDescripcion()+"   "
-                +this.cantidad+"   "+producto.getPrecioUnitario()+"   "+this.importeLinea);
+        System.out.println(producto.getRef()+"   "+producto.getDescripcion()+"    "
+                +this.cantidad+"       "+producto.getPrecioUnitario()+"     "+this.importeLinea);
     }
 
     public Producto getProducto() {
