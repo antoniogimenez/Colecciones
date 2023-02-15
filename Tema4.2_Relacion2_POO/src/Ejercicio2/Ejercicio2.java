@@ -39,10 +39,41 @@ public class Ejercicio2 {
             do{
                 System.out.println("Elige una opcion: ");
                 opcion = Integer.parseInt(s.nextLine());
-            }while(opcion <= 1 || opcion >= 6);
+            }while(opcion <= 0 || opcion >= 6);
             
             switch (opcion){
-                
+                case 1:
+                    //Vamos a buscar un producto por referencia
+                    String ref;
+                    mibd.listarProductos();
+                    System.out.println("Dime la referencia del producto: ");
+                    ref = s.nextLine();
+                    Producto p = mibd.buscar(ref);
+                   
+                    System.out.println("Cantidad: ");
+                    int cantidad = Integer.parseInt(s.nextLine());
+                   
+                    factura1.añadirLinea(p,cantidad);
+                    break;
+                case 2:
+                    factura1.imprimirFactura();
+                    break;
+                case 3:
+                    mibd.listarProductos();
+                    break;
+                case 4:
+                    String descripcion;
+                    double precio;
+                    System.out.println("Descripcion: ");
+                    descripcion = s.nextLine();
+                    System.out.println("Precio: ");
+                    precio = Double.parseDouble(s.nextLine());
+                    mibd.add(descripcion,precio);
+                    break;
+                case 5:
+                    System.out.println("Saliendo...");
+                    break;
+
             }
             
             

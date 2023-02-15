@@ -16,12 +16,12 @@ public class Linea_Factura {
     public Linea_Factura(Producto p, int cantidad){
         this.producto = p;
         this.cantidad = cantidad;
-        this.importeLinea = producto.getPrecioUnitario()*this.cantidad;
+        this.importeLinea = p.getPrecioUnitario()*this.cantidad;
     }
     
     public void imprimirLinea(){
         System.out.println(producto.getRef()+"   "+producto.getDescripcion()+"   "
-                +cantidad+"   "+producto.getPrecioUnitario()+"   "+importeLinea);
+                +this.cantidad+"   "+producto.getPrecioUnitario()+"   "+this.importeLinea);
     }
 
     public Producto getProducto() {

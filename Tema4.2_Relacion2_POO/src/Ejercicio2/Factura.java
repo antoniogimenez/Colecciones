@@ -22,7 +22,8 @@ public class Factura {
     public Factura(String cif, String numero, LocalDate fechaFactura){
         this.cif = cif;
         this.numero = numero;
-        
+        this.fechaFactura = fechaFactura;
+        this.lista = new ArrayList();
     }
     
     public void añadirLinea(Producto p, int cantidad){
