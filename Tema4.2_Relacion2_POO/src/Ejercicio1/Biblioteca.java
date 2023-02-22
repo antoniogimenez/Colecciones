@@ -22,15 +22,15 @@ public class Biblioteca {
     }
     
     public void addLibro(String titulo, int codAutor, int año){
-        Libro l1;
-        Autor autor = buscarAutor(codAutor);
-        if(autor != null){
-            l1 = new Libro(titulo,autor,año);
-            listaLibros.add(l1);
-        }
-        else{
-            System.out.println("Error. Autor no encontrado");
-        }
+//        Libro l1;
+//        //Autor autor = buscarAutor(codAutor);
+//        if(autor != null){
+//            l1 = new Libro(titulo,autor,año);
+//            listaLibros.add(l1);
+//        }
+//        else{
+//            System.out.println("Error. Autor no encontrado");
+//        }
     }
     
     public void addAutor(String nombre, String apellido1, String apellido2, String email){
