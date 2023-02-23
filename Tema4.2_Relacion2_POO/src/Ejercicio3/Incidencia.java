@@ -5,6 +5,7 @@
 package Ejercicio3;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
@@ -22,36 +23,41 @@ public class Incidencia {
     private TipoEstado estado;
     private Puesto puesto;
     
-    public Incidencia(String problema,Puesto puesto,LocalDate fechaIncidencia, TipoEstado estado){
+    public Incidencia(Puesto puesto,String problema,LocalDate fechaIncidencia){
         this.problema= problema;
         this.puesto = puesto;
         this.fechaIncidencia = fechaIncidencia;
         this.estado = TipoEstado.PENDIENTE;
         this.resolucion = null;
+        this.fechaResolucion = null;
         Incidencia.codIncidencia++;
     }
     
     public void resuelve(String descripResolucion, LocalDate fechaResolucion){
-        
+        this.resolucion = descripResolucion;
+        this.fechaResolucion = fechaResolucion;
+        this.estado = TipoEstado.RESUELTA;
     }
     
     public void detalleIncidencia(){
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         System.out.println("INCIDENCIA");
         System.out.println("==============================");
-        System.out.println("CODIGO: "+getCodIncidencia());
-        System.out.println("PUESTO: "+getPuesto());
+        System.out.println("CODIGO: "+codIncidencia);
+        System.out.println("PUESTO: "+puesto.getDescripcion());
         System.out.println("------------------------");
-        System.out.println("DESCRIPCION: "+getProblema());
-        System.out.println("FECHA INCIDENCIA: "+getFechaIncidencia());
+        System.out.println("DESCRIPCION: "+this.problema);
+        System.out.println("FECHA INCIDENCIA: "+fechaIncidencia.format(dtf));
         System.out.println("-------------------------");
-        System.out.println("RESOLUCION: "+getResolucion());
-        System.out.println("FECHA RESOLUCION: "+getFechaResolucion());
+        System.out.println("RESOLUCION: "+this.resolucion);
+        System.out.println("FECHA RESOLUCION: "+fechaResolucion.format(dtf));
         System.out.println("===============================");
     }
     
-    public String toString(){
+    public String toCadena(){
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         String datos;
-        datos = String.format("[%s] - %d - %s - %s",estado,codIncidencia,problema,fechaIncidencia);
+        datos = String.format("[%s] - %d - %s - %s",estado,codIncidencia,problema,fechaIncidencia.format(dtf));
         return datos;
     }
 

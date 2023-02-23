@@ -12,8 +12,8 @@ public class Puesto {
     private int codigo;
     private String descripcion;
     
-    public Puesto(String descripcion){
-        this.codigo = (int)(Math.random ()* 100);
+    public Puesto(String descripcion, int codigo){
+        this.codigo = codigo;
         this.descripcion = descripcion;
     }
 
@@ -31,6 +31,12 @@ public class Puesto {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+    
+    public String toCadena(){
+        String datos;
+        datos = String.format("%d - %s",codigo,descripcion);
+        return datos;
     }
     
 }

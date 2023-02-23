@@ -5,6 +5,7 @@
 package Ejercicio3;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 /**
@@ -19,17 +20,26 @@ public class Ejercicio3 {
     public static void main(String[] args) {
         // TODO code application logic here
         Scanner s = new Scanner(System.in);
-        Puesto p = new Puesto("impresora HP sala 1");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        Puesto p = new Puesto("impresora HP sala 1",10);
         Gestor g = new Gestor();
+        g.addPuesto("PC sobremesa 11",11);
+        g.addPuesto("PC portatil 12",12);
+        g.addPuesto("Pizarra digital sala reuniones",40);
+        g.addPuesto("PC sala de reuniones",41);
+        g.addIncidencia(g.buscarPuesto(11),"Sin acceso a Internet", LocalDate.parse("10/03/2022",dtf));
         int opcion;
         String problema;
-        int codigo;
         
         do{
+            int codigoP, codigo;
+            String fecha, descripcion;
             System.out.println("============================================");
             System.out.println("               GESINTIC                     ");
             System.out.println("============================================");
             g.listarIncidencias();
+            g.listarPuestos();
+            System.out.println("----------------------------------");
             System.out.println("1. Nueva Incidencia");
             System.out.println("2. Resolver Incidencia");
             System.out.println("3. Detalles Incidencia");
@@ -42,17 +52,36 @@ public class Ejercicio3 {
             switch (opcion) {
                 case 1:
                     System.out.print("Dime el codigo del puesto: ");
-                    codigo = Integer.parseInt(s.nextLine());
+                    codigoP = Integer.parseInt(s.nextLine());
                     System.out.print("Dime el problema: ");                                        
                     problema = s.nextLine();
-                    //g.addIncidencia();
+                    System.out.println("Dime la fecha de la Incidencia: ");
+                    fecha = s.nextLine();
+                    g.addIncidencia(g.buscarPuesto(codigoP),problema,LocalDate.parse(fecha,dtf));
                     break;
+                   
                 case 2:
                     System.out.println("Dime el codigo de la Incidencia: ");
                     codigo = Integer.parseInt(s.nextLine());
-                    //.detalleIncidencia
-                default:
-                    throw new AssertionError();
+                    g.buscarIncidencia(codigo);
+                    break;
+                    
+                case 3:
+                    System.out.println("Dime el codigo de la Incidencia: ");
+                    codigo = Integer.parseInt(s.nextLine());
+                    Incidencia i = g.buscarIncidencia(codigo);
+                    if (i!=null) i.detalleIncidencia();
+                    else System.out.println("ERROR: no existe la incidencia");
+                    break;
+                case 4:
+                    System.out.println("Dime el puesto: ");
+                    codigoP = Integer.parseInt(s.nextLine());
+                    System.out.println("Dime la descripcion: ");
+                    descripcion = s.nextLine();
+                    g.addPuesto(descripcion,codigoP);
+                    break;
+                case 5:
+                    System.out.println("Saliendo...");
             }
 
         }while(opcion!=5);
