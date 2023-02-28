@@ -22,6 +22,7 @@ public class Incidencia {
     private String resolucion;
     private TipoEstado estado;
     private Puesto puesto;
+    private int id;
     
     public Incidencia(Puesto puesto,String problema,LocalDate fechaIncidencia){
         this.problema= problema;
@@ -30,6 +31,7 @@ public class Incidencia {
         this.estado = TipoEstado.PENDIENTE;
         this.resolucion = null;
         this.fechaResolucion = null;
+        this.id = codIncidencia;
         Incidencia.codIncidencia++;
     }
     
@@ -49,15 +51,23 @@ public class Incidencia {
         System.out.println("DESCRIPCION: "+this.problema);
         System.out.println("FECHA INCIDENCIA: "+fechaIncidencia.format(dtf));
         System.out.println("-------------------------");
-        System.out.println("RESOLUCION: "+this.resolucion);
-        System.out.println("FECHA RESOLUCION: "+fechaResolucion.format(dtf));
+        if (this.resolucion == null){
+            System.out.println("RESOLUCION: Sin resolver");
+        } else{
+            System.out.println("RESOLUCION: "+this.resolucion);
+        }
+        if(this.fechaResolucion == null){
+            System.out.println("FECHA RESOLUCION: Sin resolver");
+        }else{
+            System.out.println("FECHA RESOLUCION: "+fechaResolucion.format(dtf));
+        }
         System.out.println("===============================");
     }
     
     public String toCadena(){
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         String datos;
-        datos = String.format("[%s] - %d - %s - %s",estado,codIncidencia,problema,fechaIncidencia.format(dtf));
+        datos = String.format("[%s] - %d - %s - %s",estado,id,problema,fechaIncidencia.format(dtf));
         return datos;
     }
 

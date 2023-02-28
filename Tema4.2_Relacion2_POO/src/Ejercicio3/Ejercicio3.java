@@ -21,8 +21,7 @@ public class Ejercicio3 {
         // TODO code application logic here
         Scanner s = new Scanner(System.in);
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        Puesto p = new Puesto("impresora HP sala 1",10);
-        Gestor g = new Gestor();
+        Gestor g = new Gestor("GESINTIC");
         g.addPuesto("PC sobremesa 11",11);
         g.addPuesto("PC portatil 12",12);
         g.addPuesto("Pizarra digital sala reuniones",40);
@@ -33,9 +32,10 @@ public class Ejercicio3 {
         
         do{
             int codigoP, codigo;
-            String fecha, descripcion;
+            String fecha;
+            String descripcion;
             System.out.println("============================================");
-            System.out.println("               GESINTIC                     ");
+            System.out.printf("               %s                     \n",g.getNombre());
             System.out.println("============================================");
             g.listarIncidencias();
             g.listarPuestos();
@@ -63,7 +63,12 @@ public class Ejercicio3 {
                 case 2:
                     System.out.println("Dime el codigo de la Incidencia: ");
                     codigo = Integer.parseInt(s.nextLine());
-                    g.buscarIncidencia(codigo);
+                    Incidencia i2 = g.buscarIncidencia(codigo);
+                    System.out.println("Dime como se ha resuelto: ");
+                    descripcion = s.nextLine();
+                    System.out.println("Dime la fecha de resolucion: ");
+                    fecha = s.nextLine();
+                    g.resolverIncidencia(i2, descripcion, LocalDate.parse(fecha,dtf));
                     break;
                     
                 case 3:
