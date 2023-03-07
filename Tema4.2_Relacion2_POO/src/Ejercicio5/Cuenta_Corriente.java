@@ -9,14 +9,16 @@ package Ejercicio5;
  * @author antonio.gimenez
  */
 public class Cuenta_Corriente {
-    private int numero=1001;
+    private static int contador=1001;
+    private int numero;
     private Cliente titular;
     private double saldo;
     
     public Cuenta_Corriente(Cliente c, double saldo){
         this.titular = c;
         this.saldo = saldo;
-        this.numero++;
+        this.numero = contador;
+        this.contador++;
     }
     
     public void ingreso(double cantidad){
@@ -44,7 +46,7 @@ public class Cuenta_Corriente {
     
     public String aCadena(){
         String datos;
-        datos = String.format("%d - %s - %f",numero,titular,saldo);
+        datos = String.format("%d - %s - %f",numero,titular.getNombre(),saldo);
         return datos;
     }
 

@@ -52,7 +52,7 @@ public class Banco {
     public ArrayList<Cuenta_Corriente> getCuentas(Cliente c){
         ArrayList<Cuenta_Corriente> cuentasCliente = new ArrayList();
         for (Cuenta_Corriente listaCuenta : listaCuentas) {
-            if(listaCuenta.getTitular().equals(c)){
+            if(listaCuenta.getTitular() == c){
                 cuentasCliente.add(listaCuenta);
             }
         }
