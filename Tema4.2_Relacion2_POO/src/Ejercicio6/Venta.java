@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 public class Venta {
     private int numero;
-    private int contador=1;
+    private static int contador=1;
     private ArrayList<Linea_Venta> lineas;
     private final int IVA=21;
     private double importeTotal;
@@ -75,14 +75,14 @@ public class Venta {
         this.numero = numero;
     }
 
-    public int getContador() {
+    public static int getContador() {
         return contador;
     }
 
-    public void setContador(int contador) {
-        this.contador = contador;
+    public static void setContador(int contador) {
+        Venta.contador = contador;
     }
-
+    
     public ArrayList<Linea_Venta> getLineas() {
         return lineas;
     }

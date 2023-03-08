@@ -23,7 +23,7 @@ public class Linea_Venta {
     }
     
     public void imprimirLinea(){
-        System.out.println(this.cantidad+"  "+this.p.getDescripcion()+"      "+this.p.getPrecioUnitario()+"      "+calcularImporte());
+        System.out.println(this.cantidad+"     "+this.p.getDescripcion()+"        "+this.p.getPrecioUnitario()+"         "+calcularImporte());
     }
 
     public Producto getP() {
