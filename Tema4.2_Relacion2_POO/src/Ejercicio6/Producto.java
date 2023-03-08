@@ -26,9 +26,9 @@ public class Producto {
     @Override
     public String toString(){
         if(unidades <= 10){
-            return String.format("\033[31m[%d] - %s - %f - %d",ref,descripcion,precioUnitario,unidades);
+            return String.format("\033[31m[%s] - %s - %f - %d\033[37m",ref,descripcion,precioUnitario,unidades);
         }else{
-            return String.format("[%d] - %s - %f - %d",ref,descripcion,precioUnitario,unidades);
+            return String.format("[%s] - %s - %f - %d",ref,descripcion,precioUnitario,unidades);
         }
     }
 

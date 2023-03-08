@@ -28,6 +28,7 @@ public class Ferreteria {
     
     public Venta nuevaVenta(){
         Venta v = new Venta();
+        listaVentas.add(v);
         return v;
     }
     
@@ -59,4 +60,37 @@ public class Ferreteria {
         }
         System.out.println("============================================");
     }
+    
+    public void listarVentas(){
+        System.out.println("========= LISTA VENTAS ========");
+        for (Venta listaVenta : listaVentas) {
+            System.out.println(listaVenta);
+        }
+        System.out.println("================================");
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public ArrayList<Producto> getListaProductos() {
+        return listaProductos;
+    }
+
+    public void setListaProductos(ArrayList<Producto> listaProductos) {
+        this.listaProductos = listaProductos;
+    }
+
+    public ArrayList<Venta> getListaVentas() {
+        return listaVentas;
+    }
+
+    public void setListaVentas(ArrayList<Venta> listaVentas) {
+        this.listaVentas = listaVentas;
+    }
+    
 }

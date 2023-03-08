@@ -25,6 +25,7 @@ public class Venta {
     
     public void addLinea(Producto p, int cantidad){
         Linea_Venta linea = new Linea_Venta(p,cantidad);
+        p.setUnidades(p.getUnidades()-cantidad);
         lineas.add(linea);
     }
     
@@ -34,7 +35,7 @@ public class Venta {
         System.out.println("CANT   DESCRIPCION   PRECIO U   IMPORTE");
         System.out.println("--------------------------------------------");
         for (Linea_Venta linea : lineas) {
-            System.out.println(linea);
+            linea.imprimirLinea();
         }
         System.out.println("                        Subtotal: "+calcularSubtotal());
         System.out.println("                        IVA 21:   "+calcularIva());
@@ -62,7 +63,7 @@ public class Venta {
     }
     
     private double calcularImpTotal(){
-        importeTotal = calcularSubtotal()+calcularImpTotal();
+        importeTotal = calcularSubtotal()+calcularIva();
         return importeTotal;
     }
 
