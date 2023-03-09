@@ -112,15 +112,20 @@ public class Ejercicio6 {
                     f.nuevoProducto(descripcion, precio, cantidad);
                     break;
                 case 2:
-                    System.out.println("Dime la ref >");
-                    ref = s.nextLine();
-                    System.out.println("Dime la cantidad >");
-                    cantidad = Integer.parseInt(s.nextLine());
-                    if(f.añadirStock(ref, cantidad)){
-                        f.listarProductos();
-                    } else {
-                        System.out.println("Referencia no encontrada..");
-                    }
+                    boolean ok;
+                    do{
+                        System.out.println("Dime la ref >");
+                        ref = s.nextLine();
+                        System.out.println("Dime la cantidad >");
+                        cantidad = Integer.parseInt(s.nextLine());
+                        
+                        ok=f.añadirStock(ref, cantidad);
+                        if(ok==true){
+                            f.listarProductos();
+                        }else{
+                            System.out.println("Error en la referencia..");
+                        }
+                    }while(ok==false);
                     break;
                 case 3:
                     System.out.println("Volviendo...");

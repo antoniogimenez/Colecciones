@@ -33,13 +33,14 @@ public class Ferreteria {
     }
     
     public boolean añadirStock(String ref, int unidades){
-        for (Producto listaProducto : listaProductos) {
-            if(listaProducto.getRef().equalsIgnoreCase(ref)){
-                listaProducto.setUnidades(listaProducto.getUnidades() + unidades);
+        for (Producto p : listaProductos) {
+            if(p.getRef().equalsIgnoreCase(ref)){
+                p.setUnidades(p.getUnidades() + unidades);
                 return true;
-            } 
+            }
         }
         return false;
+        
     }
     
     public Producto buscar(String ref){
